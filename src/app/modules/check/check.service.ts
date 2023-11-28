@@ -11,12 +11,14 @@ const create = async (req: Request) => {
 
   const ipAddress = Ip.address();
 
-  await Check.create({
+  const result = await Check.create({
     ip_address: ipAddress,
     user_agent: userAgent,
     application_name: userData.application_name,
     related_url: userData.related_url,
   });
+
+  console.log({ result, userData });
 };
 
 const findAll = async () => {
